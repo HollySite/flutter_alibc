@@ -13,7 +13,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.0'
+        classpath 'com.android.tools.build:gradle:4.1.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -25,6 +25,10 @@ rootProject.allprojects {
         maven{ url 'https://maven.aliyun.com/repository/google'}
         maven {
             url "http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories/"
+        }
+        // 私仓
+        flatDir {
+            dirs project(':flutter_alibc').file('libs')
         }
     }
 }
@@ -50,16 +54,22 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.alibaba:fastjson:1.2.52'
     //security
-    implementation 'com.taobao.android:securityguardaar3:5.4.171@aar'
-    implementation 'com.taobao.android:securitybodyaar3:5.4.99@aar'
-    implementation 'com.taobao.android:avmpaar3:5.4.36@aar'
-    implementation 'com.taobao.android:sgmiddletieraar3:5.4.9@aar'
+//    implementation 'com.taobao.android:securityguardaar3:5.4.171@aar'
+    implementation(name: 'securityguardaar3-5.4.171', ext: 'aar')
+//    implementation 'com.taobao.android:securitybodyaar3:5.4.99@aar'
+    implementation(name: 'securitybodyaar3-5.4.99', ext: 'aar')
+//    implementation 'com.taobao.android:avmpaar3:5.4.36@aar'
+    implementation(name: 'avmpaar3-5.4.36', ext: 'aar')
+//    implementation 'com.taobao.android:sgmiddletieraar3:5.4.9@aar'
+    implementation(name: 'sgmiddletieraar3-5.4.9', ext: 'aar')
 
     //mtop
-    implementation 'com.taobao.android:mtopsdk_allinone_open:3.1.2.5@jar'
+//    implementation 'com.taobao.android:mtopsdk_allinone_open:3.1.2.5@jar'
+    implementation(name: 'mtopsdk_allinone_open-3.1.2.5', ext: 'jar')
 
     //appLink
-    implementation 'com.alibaba.sdk.android:alibc_link_partner:4.1.15@aar'
+//    implementation 'com.alibaba.sdk.android:alibc_link_partner:4.1.15@aar'
+    implementation(name: 'alibc_link_partner-4.1.15', ext: 'aar')
 
     //core
     implementation 'com.alibaba.sdk.android:AlibcTradeCommon:4.0.0.16@aar'
