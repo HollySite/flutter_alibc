@@ -57,8 +57,7 @@ class UserModel {
   final String? openSid;
   final String? topAccessToken;
   final String? topAuthCode;
-  UserModel(this.nick, this.avatarUrl, this.openId, this.openSid,
-      this.topAccessToken, this.topAuthCode);
+  UserModel(this.nick, this.avatarUrl, this.openId, this.openSid, this.topAccessToken, this.topAuthCode);
 }
 
 // 淘宝客的参数
@@ -69,8 +68,15 @@ class TaokeParams {
   String? unionId;
   String? subPid;
   Map? extParams;
-  TaokeParams(
-      {this.adzoneId, this.pid, this.unionId, this.subPid, this.extParams});
+  TaokeParams({this.adzoneId, this.pid, this.unionId, this.subPid, this.extParams});
+}
+
+class UrlParams {
+  final String id;
+  final String shopId;
+  final Map<String, dynamic> bizExtMap;
+
+  UrlParams(this.id, this.shopId, this.bizExtMap);
 }
 
 // url打开或者page打开等的数据
@@ -80,8 +86,6 @@ class TradeResult {
   // 错误信息
   final String? errorMessage;
 
-  TradeResultType? type;
-
   PayResult? payResult;
   // AddCardResult addCardResult;
   // Android没有，所以去掉
@@ -90,7 +94,6 @@ class TradeResult {
   TradeResult(
     this.errorCode,
     this.errorMessage, {
-    this.type,
     this.payResult,
     // this.tradeFailResult,
   });

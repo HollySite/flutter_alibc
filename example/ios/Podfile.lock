@@ -1,23 +1,117 @@
 PODS:
-  - AliAuthSDK (1.1.0.41-bc)
-  - AlibcTradeSDK (4.0.1.15)
-  - AliLinkPartnerSDK (4.0.0.24)
-  - BCUserTrack (5.2.0.18-appkeys):
-    - UTDID
+  - AliAuthSDK (1.1.0.39-bc)
+  - AlibcTradeUltimateSDK (4.9.2.6)
+  - AliLinkPartnerSDK (4.0.0.24-wk)
+  - Ariver (1.0.11.2-BC1):
+    - Ariver/AriverApi (= 1.0.11.2-BC1)
+    - Ariver/AriverApp (= 1.0.11.2-BC1)
+    - Ariver/AriverAuth (= 1.0.11.2-BC1)
+    - Ariver/AriverConfig (= 1.0.11.2-BC1)
+    - Ariver/AriverDevice (= 1.0.11.2-BC1)
+    - Ariver/AriverDeviceCore (= 1.0.11.2-BC1)
+    - Ariver/AriverFileManager (= 1.0.11.2-BC1)
+    - Ariver/AriverKernel (= 1.0.11.2-BC1)
+    - Ariver/AriverLogger (= 1.0.11.2-BC1)
+    - Ariver/AriverResource (= 1.0.11.2-BC1)
+    - Ariver/AriverRuntime (= 1.0.11.2-BC1)
+    - Ariver/AriverSecurity (= 1.0.11.2-BC1)
+    - Ariver/AriverWebSocket (= 1.0.11.2-BC1)
+  - Ariver/AriverApi (1.0.11.2-BC1):
+    - Ariver/AriverApp
+    - Ariver/AriverConfig
+  - Ariver/AriverApp (1.0.11.2-BC1):
+    - Ariver/AriverResource
+  - Ariver/AriverAuth (1.0.11.2-BC1):
+    - Ariver/AriverApp
+  - Ariver/AriverConfig (1.0.11.2-BC1):
+    - Ariver/AriverKernel
+  - Ariver/AriverDevice (1.0.11.2-BC1):
+    - Ariver/AriverApp
+    - Ariver/AriverDeviceCore
+    - Ariver/AriverKernel
+  - Ariver/AriverDeviceCore (1.0.11.2-BC1)
+  - Ariver/AriverFileManager (1.0.11.2-BC1):
+    - Ariver/AriverApi
+    - Ariver/AriverApp
+    - Ariver/AriverKernel
+    - Ariver/AriverResource
+  - Ariver/AriverKernel (1.0.11.2-BC1)
+  - Ariver/AriverLogger (1.0.11.2-BC1):
+    - Ariver/AriverApp
+    - Ariver/AriverKernel
+  - Ariver/AriverResource (1.0.11.2-BC1):
+    - Ariver/AriverKernel
+  - Ariver/AriverRuntime (1.0.11.2-BC1):
+    - Ariver/AriverApp
+  - Ariver/AriverSecurity (1.0.11.2-BC1):
+    - Ariver/AriverApp
+    - Ariver/AriverKernel
+    - Ariver/AriverResource
+  - Ariver/AriverWebSocket (1.0.11.2-BC1):
+    - Ariver/AriverApp
+  - BCUserTrack (7.2.0.6-BC)
   - Flutter (1.0.0)
   - flutter_alibc (0.0.1):
-    - AliAuthSDK (= 1.1.0.41-bc)
-    - AlibcTradeSDK (= 4.0.1.15)
-    - AliLinkPartnerSDK (= 4.0.0.24)
-    - BCUserTrack (= 5.2.0.18-appkeys)
+    - AliAuthSDK (= 1.1.0.39-bc)
+    - AlibcTradeUltimateSDK (= 4.9.2.6)
+    - AliLinkPartnerSDK (= 4.0.0.24-wk)
+    - Ariver (= 1.0.11.2-BC1)
+    - BCUserTrack (= 7.2.0.6-BC)
     - Flutter
+    - FMDB (~> 2.7.5)
+    - miniAppMediaSDK (= 0.0.1.45-BC)
     - mtopSDK (= 3.0.0.5)
+    - MunionBcAdSDK (= 1.0.5)
+    - Reachability
+    - SDWebImage
     - securityGuard (= 5.4.191)
-    - UTDID (= 1.5.0.91)
+    - SocketRocket
+    - SSZipArchive
+    - TBMediaPlayer (= 2.0.7.37)
+    - Triver (= 1.0.11.5-BC4)
+    - Windmill (= 1.3.7.3-BC1)
+    - WindMix (= 1.0.0.5)
     - WindVane (= 8.5.0.46-bc11)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - miniAppMediaSDK (0.0.1.45-BC):
+    - miniAppMediaSDK/Image (= 0.0.1.45-BC)
+  - miniAppMediaSDK/Image (0.0.1.45-BC)
   - mtopSDK (3.0.0.5)
+  - MunionBcAdSDK (1.0.5)
+  - Reachability (3.2)
+  - SDWebImage (5.12.1):
+    - SDWebImage/Core (= 5.12.1)
+  - SDWebImage/Core (5.12.1)
   - securityGuard (5.4.191)
-  - UTDID (1.5.0.91)
+  - SocketRocket (0.6.0)
+  - SSZipArchive (2.4.2)
+  - TBMediaPlayer (2.0.7.37)
+  - Triver (1.0.11.5-BC4):
+    - Triver/API (= 1.0.11.5-BC4)
+    - Triver/AppContainer (= 1.0.11.5-BC4)
+    - Triver/Capability (= 1.0.11.5-BC4)
+    - Triver/DebugTool (= 1.0.11.5-BC4)
+    - Triver/LivePlayer (= 1.0.11.5-BC4)
+    - Triver/LocalDebug (= 1.0.11.5-BC4)
+    - Triver/Runtime (= 1.0.11.5-BC4)
+    - Triver/Video (= 1.0.11.5-BC4)
+  - Triver/API (1.0.11.5-BC4)
+  - Triver/AppContainer (1.0.11.5-BC4)
+  - Triver/Capability (1.0.11.5-BC4)
+  - Triver/DebugTool (1.0.11.5-BC4)
+  - Triver/LivePlayer (1.0.11.5-BC4)
+  - Triver/LocalDebug (1.0.11.5-BC4)
+  - Triver/Runtime (1.0.11.5-BC4)
+  - Triver/Video (1.0.11.5-BC4)
+  - Windmill (1.3.7.3-BC1):
+    - Windmill/TRiverKit (= 1.3.7.3-BC1)
+    - Windmill/Weaver (= 1.3.7.3-BC1)
+  - Windmill/TRiverKit (1.3.7.3-BC1):
+    - Windmill/Weaver
+  - Windmill/Weaver (1.3.7.3-BC1)
+  - WindMix (1.0.0.5)
   - WindVane (8.5.0.46-bc11):
     - WindVane/Basic (= 8.5.0.46-bc11)
     - WindVane/Core (= 8.5.0.46-bc11)
@@ -33,13 +127,25 @@ DEPENDENCIES:
 SPEC REPOS:
   http://repo.baichuan-ios.taobao.com/baichuanSDK/AliBCSpecs.git:
     - AliAuthSDK
-    - AlibcTradeSDK
+    - AlibcTradeUltimateSDK
     - AliLinkPartnerSDK
+    - Ariver
     - BCUserTrack
+    - miniAppMediaSDK
     - mtopSDK
+    - MunionBcAdSDK
     - securityGuard
-    - UTDID
+    - TBMediaPlayer
+    - Triver
+    - Windmill
+    - WindMix
     - WindVane
+  trunk:
+    - FMDB
+    - Reachability
+    - SDWebImage
+    - SocketRocket
+    - SSZipArchive
 
 EXTERNAL SOURCES:
   Flutter:
@@ -48,17 +154,28 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_alibc/ios"
 
 SPEC CHECKSUMS:
-  AliAuthSDK: 7018e8f3c8be3382e60f69d3b517c7de34c351e0
-  AlibcTradeSDK: c7316224913498ea3d447386849cf0abf9e53fe6
-  AliLinkPartnerSDK: c5778cdfdcee7bfe342238d39a77766184d36a46
-  BCUserTrack: 49251c6fb7c65cbbc221a492bbd3f3e142f1fb0f
-  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
-  flutter_alibc: 41b70776ad73e2dc99294b43967320755253dd17
+  AliAuthSDK: c342b9f98627104a8d95c38cdef59ba946570e16
+  AlibcTradeUltimateSDK: 1ad8e0601fd23cf1408ec2e8ab108558b9d84031
+  AliLinkPartnerSDK: a695bd4c73bdd7ea555a2a70d92fbcb9782ffd3f
+  Ariver: 5f5058e6679b0e445d59c83c7116b7c1f399c36a
+  BCUserTrack: e0591e0af445c768e106e0ae5031c7059a6afd80
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  flutter_alibc: f5c856b762271bdc6300daeabbba7f77acbf266d
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  miniAppMediaSDK: ef463e6ba349082c1352f8f963a847dafda8e5a1
   mtopSDK: 9458d64bb4143a4e3e057552526ed82536827879
+  MunionBcAdSDK: 6545b1e25bf280c0c0cb9d3a562da7299a0af90d
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
   securityGuard: 9c04c44a3b663f36e15064042abfc107fa07133c
-  UTDID: 7860884a89209c8f1306740ff22cf117d72b6d8a
+  SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
+  SSZipArchive: e7b4f3d9e780c2acc1764cd88fbf2de28f26e5b2
+  TBMediaPlayer: e232d6c2a8254d073fffd0a1899334faa44dbc06
+  Triver: d77e7784459556ab2682e3ba24b7f8a90f5ed04c
+  Windmill: 8d91c0503112ec0ac15e5d2292e20263839fc3fb
+  WindMix: ab234fa47746b7f916cb521d4d41e4f11d9d7415
   WindVane: 56e096abae757397ccd3accb66a959f3ffcbf949
 
-PODFILE CHECKSUM: bd1c75573ad4ab2d9dd61c2da7cd06af40ad01e8
+PODFILE CHECKSUM: bcbad1c2c83152128a482ad6ceb074d296aa9590
 
 COCOAPODS: 1.10.1
