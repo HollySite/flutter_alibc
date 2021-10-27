@@ -35,22 +35,11 @@ public class SwiftFlutterAlibcPlugin: NSObject, FlutterPlugin {
             alibchandler?.openShop(call: call, result: result, callBackString: FlutterAlibcConstKey.CallBackString.AlibcOpenShop.rawValue)
         } else if call.method == "openCart"{
             alibchandler?.openCart(call: call, result: result, callBackString: FlutterAlibcConstKey.CallBackString.AlibcOpenCar.rawValue)
-        } else if call.method == "syncForTaoke"{
-            alibchandler?.syncForTaoke(call: call, result: result)
-        } else if call.method == "useAlipayNative"{
-            alibchandler?.useAlipayNative(call: call, result: result)
-        }else{
+        } else{
             result(FlutterMethodNotImplemented)
         }
     }
-    
-    //    MARK:- 百川处理应用跳转
-    public func application(_ application: UIApplication, open url: URL, sourceApplication: String, annotation: Any) -> Bool {
-        if !(AlibcTradeSDK.sharedInstance()?.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation))! {
-            return true
-        }
-        return false
-    }
+
     //IOS9.0 系统新的处理openURL 的API
     public func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         if #available(iOS 9.0, *) {
@@ -60,7 +49,7 @@ public class SwiftFlutterAlibcPlugin: NSObject, FlutterPlugin {
             }
             
             //          转换
-            let isHandledByALBBSDK : Bool = (AlibcTradeSDK.sharedInstance()?.application(application, open: url, options: op))!;
+            let isHandledByALBBSDK : Bool = (AlibcTradeUltimateSDK.sharedInstance().application(application, open: url, options: op));
             
             //            let isHandledByALBBSDK : Bool = (AlibcTradeSDK.sharedInstance()?.application(application, open: url, options:[:]))!
             

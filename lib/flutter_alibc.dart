@@ -12,8 +12,7 @@ typedef CommonCallback = void Function(Map<String, dynamic> map);
 
 class FlutterAlibc {
   // 通信的桥接类
-  static final MethodChannel _channel = const MethodChannel("flutter_alibc")
-    ..setMethodCallHandler(_platformCallHandler);
+  static final MethodChannel _channel = const MethodChannel("flutter_alibc")..setMethodCallHandler(_platformCallHandler);
 
   static Map<CallBackType, Function?> _callBackMaps = {
     CallBackType.AlibcTaobaoLogin: null,
@@ -38,10 +37,8 @@ class FlutterAlibc {
   ///   errorMessage,  //message
   ///}
   static Future<InitModel> initAlibc({String? version, String? appName}) async {
-    Map result = await _channel
-            .invokeMethod("initAlibc", {"version": version, "appName": appName});
-    return InitModel(
-        result[AlibcConstKey.errorCode], result[AlibcConstKey.errorMessage]);
+    Map result = await _channel.invokeMethod("initAlibc", {"version": version, "appName": appName});
+    return InitModel(result[AlibcConstKey.errorCode], result[AlibcConstKey.errorMessage]);
   }
 
   ///
@@ -72,23 +69,18 @@ class FlutterAlibc {
   /// Map<String,String>
   static void taoKeLogin(
       {required String url,
-      AlibcOpenType openType = AlibcOpenType.AlibcOpenTypeAuto,
-      bool isNeedCustomNativeFailMode = false,
-      AlibcNativeFailMode nativeFailMode =
-          AlibcNativeFailMode.AlibcNativeFailModeNone,
+      AlibcNativeFailMode nativeFailMode = AlibcNativeFailMode.AlibcNativeFailModeNone,
       AlibcSchemeType schemeType = AlibcSchemeType.AlibcSchemeTaoBao,
       TaokeParams? taokeParams,
-      String? backUrl,
+      String? degradeUrl,
       required CommonCallback taokeCallback}) async {
     Map? taoKe = AlibcTools.getTaokeMap(taokeParams);
     _channel.invokeMethod("taoKeLogin", {
       "url": url,
-      "openType": openType.index,
-      "isNeedCustomNativeFailMode": isNeedCustomNativeFailMode,
       "nativeFailMode": nativeFailMode.index,
       "schemeType": schemeType.index,
       "taokeParams": taoKe,
-      "backUrl": backUrl,
+      "degradeUrl": degradeUrl,
     });
     _callBackMaps[CallBackType.AlibcTaokeLogin] = taokeCallback;
   }
@@ -110,32 +102,20 @@ class FlutterAlibc {
   /// Map<String,String>
   static void taoKeLoginForCode({
     required String url,
-    AlibcOpenType openType = AlibcOpenType.AlibcOpenTypeAuto,
-    bool isNeedCustomNativeFailMode = false,
-    AlibcNativeFailMode nativeFailMode =
-        AlibcNativeFailMode.AlibcNativeFailModeNone,
+    AlibcNativeFailMode nativeFailMode = AlibcNativeFailMode.AlibcNativeFailModeNone,
     AlibcSchemeType schemeType = AlibcSchemeType.AlibcSchemeTaoBao,
     TaokeParams? taokeParams,
-    String? backUrl,
+    String? degradeUrl,
     required CommonCallback taokeCallback,
   }) async {
     Map? taoKe = AlibcTools.getTaokeMap(taokeParams);
-    _channel.invokeMethod("taoKeLoginForCode", {
-      "url": url,
-      "openType": openType.index,
-      "isNeedCustomNativeFailMode": isNeedCustomNativeFailMode,
-      "nativeFailMode": nativeFailMode.index,
-      "schemeType": schemeType.index,
-      "taokeParams": taoKe,
-      "backUrl": backUrl
-    });
+    _channel.invokeMethod("taoKeLoginForCode", {"url": url, "nativeFailMode": nativeFailMode.index, "schemeType": schemeType.index, "taokeParams": taoKe, "degradeUrl": degradeUrl});
     _callBackMaps[CallBackType.AlibcTaokeLoginForCode] = taokeCallback;
   }
 
   static Future<dynamic> _platformCallHandler(MethodCall call) async {
     var argu = call.arguments;
-    print(
-        'call.name ${call.method}  call.arguments ${call.arguments.toString()}');
+    print('call.name ${call.method}  call.arguments ${call.arguments.toString()}');
     CallBackType? type = enumFromString(CallBackType.values, call.method);
     print(argu.runtimeType.toString());
     var temp = Map<String, dynamic>();
@@ -144,15 +124,15 @@ class FlutterAlibc {
     });
     switch (type) {
       case CallBackType.AlibcTaobaoLogin:
-        argu = LoginModel(
-            argu[AlibcConstKey.errorCode], argu[AlibcConstKey.errorMessage],
+        argu = LoginModel(argu[AlibcConstKey.errorCode], argu[AlibcConstKey.errorMessage],
             data: UserModel(
-                argu[AlibcConstKey.data]["nick"],
-                argu[AlibcConstKey.data]["avatarUrl"],
-                argu[AlibcConstKey.data]["openId"],
-                argu[AlibcConstKey.data]["openSid"],
-                argu[AlibcConstKey.data]["topAccessToken"],
-                argu[AlibcConstKey.data]["topAuthCode"]));
+              argu[AlibcConstKey.data]["nick"],
+              argu[AlibcConstKey.data]["avatarUrl"],
+              argu[AlibcConstKey.data]["openId"],
+              argu[AlibcConstKey.data]["openSid"],
+              argu[AlibcConstKey.data]["topAccessToken"],
+              argu[AlibcConstKey.data]["topAuthCode"],
+            ));
         break;
       case CallBackType.AlibcTaokeLogin:
       case CallBackType.AlibcTaokeLoginForCode:
@@ -191,24 +171,19 @@ class FlutterAlibc {
   ///
   static void openByUrl({
     required String url,
-    AlibcOpenType openType = AlibcOpenType.AlibcOpenTypeAuto,
-    bool isNeedCustomNativeFailMode = false,
-    AlibcNativeFailMode nativeFailMode =
-        AlibcNativeFailMode.AlibcNativeFailModeNone,
+    AlibcNativeFailMode nativeFailMode = AlibcNativeFailMode.AlibcNativeFailModeNone,
     AlibcSchemeType schemeType = AlibcSchemeType.AlibcSchemeTmall,
     TaokeParams? taokeParams,
-    String? backUrl,
+    String? degradeUrl,
     OpenCallback? callback,
   }) async {
     Map? taoKe = AlibcTools.getTaokeMap(taokeParams);
     _channel.invokeMethod("openByUrl", {
       "url": url,
-      "openType": openType.index,
-      "isNeedCustomNativeFailMode": isNeedCustomNativeFailMode,
       "nativeFailMode": nativeFailMode.index,
       "schemeType": schemeType.index,
       "taokeParams": taoKe,
-      "backUrl": backUrl
+      "degradeUrl": degradeUrl,
     });
     _callBackMaps[CallBackType.AlibcOpenURL] = callback;
   }
@@ -222,30 +197,23 @@ class FlutterAlibc {
   /// @return:
   ///
   static void openItemDetail(
-      {required String itemID,
-      // iOS独占
-      // bool isNeedPush = false,
-      AlibcOpenType openType = AlibcOpenType.AlibcOpenTypeAuto,
-      bool isNeedCustomNativeFailMode = false,
-      AlibcNativeFailMode nativeFailMode =
-          AlibcNativeFailMode.AlibcNativeFailModeNone,
+      {AlibcNativeFailMode nativeFailMode = AlibcNativeFailMode.AlibcNativeFailModeNone,
       AlibcSchemeType schemeType = AlibcSchemeType.AlibcSchemeTmall,
       TaokeParams? taokeParams,
       // 额外需要追踪的业务数据
       Map? trackParam,
-      String? backUrl,
+      String? degradeUrl,
+      required UrlParams urlParam,
       OpenCallback? callback}) async {
     Map? taoKe = AlibcTools.getTaokeMap(taokeParams);
+    final Map<String, dynamic>? urlParams = AlibcTools.getUrlParamMap(urlParam);
     _channel.invokeMethod("openItemDetail", {
-      "itemID": itemID,
-      // "isNeedPush": isNeedPush,
-      "openType": openType.index,
-      "isNeedCustomNativeFailMode": isNeedCustomNativeFailMode,
       "nativeFailMode": nativeFailMode.index,
       "schemeType": schemeType.index,
       "taokeParams": taoKe,
       "trackParam": trackParam,
-      "backUrl": backUrl
+      "urlParams": urlParams,
+      "degradeUrl": degradeUrl,
     });
     _callBackMaps[CallBackType.AlibcOpenDetail] = callback;
   }
@@ -258,30 +226,22 @@ class FlutterAlibc {
   ///
   static void openShop(
       {required String shopId,
-      // iOS独占
-      // bool isNeedPush = false,
-      AlibcOpenType openType = AlibcOpenType.AlibcOpenTypeAuto,
-      bool isNeedCustomNativeFailMode = false,
-      AlibcNativeFailMode nativeFailMode =
-          AlibcNativeFailMode.AlibcNativeFailModeNone,
+      AlibcNativeFailMode nativeFailMode = AlibcNativeFailMode.AlibcNativeFailModeNone,
       AlibcSchemeType schemeType = AlibcSchemeType.AlibcSchemeTmall,
       TaokeParams? taokeParams,
       // 额外需要追踪的业务数据
       Map? trackParam,
-      String? backUrl,
+      String? degradeUrl,
       OpenCallback? callback}) async {
     Map? taoKe = AlibcTools.getTaokeMap(taokeParams);
 
     _channel.invokeMethod("openShop", {
       "shopId": shopId,
-      // "isNeedPush": isNeedPush,
-      "openType": openType.index,
-      "isNeedCustomNativeFailMode": isNeedCustomNativeFailMode,
       "nativeFailMode": nativeFailMode.index,
       "schemeType": schemeType.index,
       "taokeParams": taoKe,
       "trackParam": trackParam,
-      "backUrl": backUrl
+      "degradeUrl": degradeUrl,
     });
     _callBackMaps[CallBackType.AlibcOpenShop] = callback;
   }
@@ -291,31 +251,25 @@ class FlutterAlibc {
   /// @param {type}
   /// @return:
   ///
-  static void openCart(
-      {
-      // iOS独占
-      // bool isNeedPush = false,
-      AlibcOpenType openType = AlibcOpenType.AlibcOpenTypeAuto,
-      bool isNeedCustomNativeFailMode = false,
-      AlibcNativeFailMode nativeFailMode =
-          AlibcNativeFailMode.AlibcNativeFailModeNone,
-      AlibcSchemeType schemeType = AlibcSchemeType.AlibcSchemeTmall,
-      TaokeParams? taokeParams,
-      // 额外需要追踪的业务数据
-      Map? trackParam,
-      String? backUrl,
-      OpenCallback? callback}) async {
+  static void openCart({
+    AlibcNativeFailMode nativeFailMode = AlibcNativeFailMode.AlibcNativeFailModeNone,
+    AlibcSchemeType schemeType = AlibcSchemeType.AlibcSchemeTmall,
+    TaokeParams? taokeParams,
+    UrlParams? urlParams,
+    // 额外需要追踪的业务数据
+    Map? trackParam,
+    String? degradeUrl,
+    OpenCallback? callback,
+  }) async {
     Map? taoKe = AlibcTools.getTaokeMap(taokeParams);
-
+    Map<String, dynamic>? urlParam = AlibcTools.getUrlParamMap(urlParams);
     _channel.invokeMethod("openCart", {
-      // "isNeedPush": isNeedPush,
-      "openType": openType.index,
-      "isNeedCustomNativeFailMode": isNeedCustomNativeFailMode,
       "nativeFailMode": nativeFailMode.index,
       "schemeType": schemeType.index,
       "taokeParams": taoKe,
+      "urlParams": urlParam,
       "trackParam": trackParam,
-      "backUrl": backUrl
+      "degradeUrl": degradeUrl,
     });
     _callBackMaps[CallBackType.AlibcOpenCar] = callback;
   }
@@ -323,10 +277,5 @@ class FlutterAlibc {
   // 是否需要设置打点
   static syncForTaoke(bool isSync) {
     _channel.invokeMethod("syncForTaoke", {"isSync": isSync});
-  }
-
-  // 是否需要 Native AliPay 接口
-  static useAlipayNative(bool isNeed) {
-    _channel.invokeMethod("useAlipayNative", {"isNeed": isNeed});
   }
 }

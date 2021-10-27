@@ -14,16 +14,31 @@ A new flutter plugin project.
   s.author           = { 'Your Company' => 'email@example.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
+
   s.dependency 'Flutter'
-  s.dependency 'AlibcTradeSDK','4.0.1.15'
-  s.dependency 'AliAuthSDK','1.1.0.41-bc'
-  s.dependency 'mtopSDK','3.0.0.5'
-  s.dependency 'securityGuard','5.4.191'
-  s.dependency 'AliLinkPartnerSDK','4.0.0.24'
-  s.dependency 'BCUserTrack','5.2.0.18-appkeys'
-  s.dependency 'UTDID','1.5.0.91'
-  s.dependency 'WindVane','8.5.0.46-bc11'
-  s.platform = :ios, '8.0'
+  #基础电商SDK依赖
+  s.dependency 'mtopSDK', '3.0.0.5'
+  s.dependency 'securityGuard', '5.4.191'
+  s.dependency 'BCUserTrack', '7.2.0.6-BC'
+  s.dependency 'AliAuthSDK', '1.1.0.39-bc'
+  s.dependency 'AliLinkPartnerSDK', '4.0.0.24-wk'
+  s.dependency 'MunionBcAdSDK', '1.0.5'
+  #电商套件依赖
+  s.dependency 'WindVane', '8.5.0.46-bc11'
+  s.dependency 'WindMix', '1.0.0.5'
+  s.dependency 'Ariver', '1.0.11.2-BC1'
+  s.dependency 'Triver', '1.0.11.5-BC4'
+  s.dependency 'Windmill', '1.3.7.3-BC1'
+  s.dependency 'AlibcTradeUltimateSDK', '4.9.2.6'
+  s.dependency 'TBMediaPlayer', '2.0.7.37'
+  s.dependency 'miniAppMediaSDK', '0.0.1.45-BC'
+  
+  s.dependency 'FMDB', '~> 2.7.5'
+  s.dependency 'Reachability'
+  s.dependency 'SocketRocket'
+  s.dependency 'SSZipArchive'
+  s.dependency 'SDWebImage'
+  s.platform = :ios, '10.0'
 
   s.frameworks = "CoreTelephony","CoreMotion","UIKit","Foundation"
   s.libraries = "z","c++","sqlite3.0"
